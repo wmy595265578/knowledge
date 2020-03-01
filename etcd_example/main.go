@@ -4,12 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"go.etcd.io/etcd/clientv3"
 	"time"
 )
 
 const (
-	EtcdKey = "/usr/local/tomcat_online/conf"
+	EtcdKey = "/usr/lcal/tomcat_online/conf"
 )
 
 type LogConf struct {
