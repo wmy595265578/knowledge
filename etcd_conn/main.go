@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	//"go.etcd.io/etcd/clientv3"
 	"go.etcd.io/etcd/clientv3"
 )
 
@@ -20,11 +21,13 @@ func main() {
 	}
 	fmt.Println("conn etcd successful")
 	cli = Cli
-	ctx,_ := context.WithCancel(context.Background())
-	cli.Put(ctx,"wmy","123")
+	ctx,cancle := context.WithCancel(context.Background())
+	resp,_:=cli.Put(ctx,"wmy","111")
+    cancle()
+	fmt.Println(resp.Header)
+	cli.Get(ctx,"wmy")
+	//Get()
 
-
-Get()
 }
 
 
