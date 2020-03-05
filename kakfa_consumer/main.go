@@ -26,7 +26,7 @@ func main() {
 
 
 	for partition := range partitionList {
-		pc, err := consumer.ConsumePartition("mykafka", int32(partition), sarama.OffsetOldest)
+		pc, err := consumer.ConsumePartition("mykafka", int32(partition), sarama.OffsetNewest)
 		fmt.Println(partition)
 		if err != nil {
 			fmt.Printf("Failed to start consumer for partition %d: %s\n", partition, err)
